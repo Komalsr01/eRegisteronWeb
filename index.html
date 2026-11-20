@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111827">
+    <title>Kyndryl Year End Celebrations 2026</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Kyndryl Year End Celebrations home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>
+          <strong>Kyndryl</strong>
+          <small>Year End Celebrations 2026</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link is-active" type="button" data-view="register-view">Register</button>
+        <button class="nav-link" type="button" data-view="event-view">Event information</button>
+        <button class="nav-link" type="button" data-view="admin-view">Admin</button>
+      </nav>
+    </header>
+
+    <main>
+      <aside id="demo-notice" class="demo-notice" role="note" hidden>
+        Public demo only: use synthetic test information. Do not enter real names, email addresses, phone numbers, or emergency-contact details. Demo registrations are not stored and no email is sent.
+      </aside>
+      <section id="register-view" class="view">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Kyndryl · 2026</p>
+            <h1>Let’s celebrate<br><span>what we make possible.</span></h1>
+            <p class="hero-intro">Register for our Year End Celebrations and keep your entry code ready for event day.</p>
+            <button class="text-link" type="button" data-view="event-view">
+              Explore event guidance <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <aside class="hero-note">
+            <span class="note-icon" aria-hidden="true">✦</span>
+            <p>Make a plan to get home safely. If you plan to drink, self-drive is not an option.</p>
+          </aside>
+        </div>
+
+        <section class="content-section registration-section" aria-labelledby="registration-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Your details</p>
+              <h2 id="registration-title">Employee registration</h2>
+            </div>
+            <p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
+          </div>
+
+          <div id="confirmation" class="confirmation-card" role="status" aria-live="polite" hidden>
+            <div class="confirmation-icon" aria-hidden="true">✓</div>
+            <div>
+              <p class="eyebrow">Registration complete</p>
+              <h3 id="confirmation-title">You’re on the list.</h3>
+              <p id="confirmation-message"></p>
+              <div class="entry-code-wrap">
+                <span>Official digital entrance pass ID</span>
+                <strong id="entry-code"></strong>
+              </div>
+              <p class="fine-print">Save this code. An administrator can also verify you by your name and official Kyndryl email if your code is unavailable.</p>
+            </div>
+          </div>
+
+          <form id="registration-form" class="registration-form">
+            <div class="form-grid">
+              <label class="field">
+                <span>Full name <b aria-hidden="true">*</b></span>
+                <input name="fullName" autocomplete="name" maxlength="100" required>
+              </label>
+              <label class="field">
+                <span>Mobile number <b aria-hidden="true">*</b></span>
+                <input name="mobile" type="tel" autocomplete="tel" placeholder="+91 98765 43210" maxlength="24" required>
+              </label>
+              <label class="field field-wide">
+                <span>Official Kyndryl email <b aria-hidden="true">*</b></span>
+                <input name="officialEmail" type="email" autocomplete="email" placeholder="name@kyndryl.com" maxlength="254" pattern=".+@kyndryl\.com" required>
+                <small>Only @kyndryl.com addresses can register.</small>
+              </label>
+            </div>
+
+            <div class="form-divider"><span>Emergency contact</span></div>
+            <div class="form-grid">
+              <label class="field">
+                <span>Contact name <b aria-hidden="true">*</b></span>
+                <input name="emergencyContactName" autocomplete="name" maxlength="100" required>
+              </label>
+              <label class="field">
+                <span>Contact mobile number <b aria-hidden="true">*</b></span>
+                <input name="emergencyContactMobile" type="tel" autocomplete="tel" placeholder="+91 98765 43210" maxlength="24" required>
+              </label>
+            </div>
+
+            <div class="form-divider"><span>Event preferences</span></div>
+            <div class="form-grid">
+              <label class="field">
+                <span>Dietary preference <b aria-hidden="true">*</b></span>
+                <select name="dietaryPreference" required>
+                  <option value="" selected disabled>Select a preference</option>
+                  <option>No preference</option>
+                  <option>Vegetarian</option>
+                  <option>Vegan</option>
+                  <option>Jain</option>
+                  <option>Halal</option>
+                  <option>Kosher</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Do you plan to drink alcohol? <b aria-hidden="true">*</b></span>
+                <select name="alcoholPreference" id="alcohol-preference" required>
+                  <option value="" selected disabled>Select an answer</option>
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </label>
+              <label class="field field-wide" id="travel-field">
+                <span>How will you travel? <small>(required if you plan to drink)</small></span>
+                <select name="travelMode" id="travel-mode">
+                  <option value="" selected>Select your travel mode</option>
+                  <option value="public_transport">Public transport</option>
+                  <option value="taxi_rideshare">Taxi or ride-share</option>
+                  <option value="event_transport">Event transport</option>
+                  <option value="other">Other safe transport</option>
+                  <option value="self_drive">Self drive</option>
+                </select>
+                <small id="travel-help">Required if you plan to drink. Drinking and self-driving are not allowed.</small>
+              </label>
+            </div>
+
+            <div class="consent-box">
+              <p class="email-disclosure">If automatic confirmation is enabled, EmailJS receives your name, Kyndryl email, mobile number, meal and beverage choices, travel mode, event details, and entry code to send your pass. Emergency-contact details are not included.</p>
+              <label class="check-row">
+                <input type="checkbox" name="attendanceConfirmed" required>
+                <span>I confirm that I will attend the Year End Celebrations. <b aria-hidden="true">*</b></span>
+              </label>
+              <label class="check-row">
+                <input type="checkbox" name="termsAccepted" required>
+                <span>I have read and accept the <button type="button" class="inline-link" data-view="event-view">event terms and safety guidance</button>. <b aria-hidden="true">*</b></span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <p id="registration-error" class="form-error" role="alert" hidden></p>
+              <button class="button button-primary" type="submit">
+                <span>Complete registration</span><span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section id="event-view" class="view" hidden>
+        <div class="page-hero">
+          <p class="eyebrow">Plan ahead</p>
+          <h1>Event information</h1>
+          <p>Key event details and safety guidance for Kyndryl Year End Celebrations 2026.</p>
+        </div>
+        <div class="info-grid">
+          <article class="info-card info-card-dark">
+            <p class="eyebrow">The celebration</p>
+            <h2>Kyndryl Year End Celebrations 2026</h2>
+            <dl class="event-details">
+              <div><dt>Date &amp; Time</dt><dd id="event-date">Friday, December 18, 2026 at 6:30 PM IST</dd></div>
+              <div><dt>Venue Location</dt><dd id="event-venue">The Grand Ballroom, Kyndryl Technology Center</dd></div>
+              <div><dt>Admittance gates</dt><dd id="event-gates">Gates 1 &amp; 2 (Kyndryl Fast-Track Check-In Desk)</dd></div>
+            </dl>
+          </article>
+          <article class="info-card">
+            <p class="eyebrow">Before you arrive</p>
+            <h2>Entry &amp; eligibility</h2>
+            <ul class="guidance-list">
+              <li>Complete your registration using your official @kyndryl.com email.</li>
+              <li>Carry your physical Kyndryl RFID badge and keep your digital entrance pass ready.</li>
+              <li>If your code is unavailable, event staff can use your name and official email as a fallback.</li>
+              <li>Confirm your attendance and accept the event terms when registering.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <p class="eyebrow">Look out for each other</p>
+            <h2>Safety &amp; conduct</h2>
+            <ul class="guidance-list">
+              <li>Follow venue safety policies and instructions from event staff.</li>
+              <li>If consuming alcohol, bring valid government photo ID for age verification.</li>
+              <li>If you plan to drink alcohol, arrange a safe ride home. Drinking and self-driving are prohibited.</li>
+              <li>Use the event-day emergency contacts published by the organizers.</li>
+            </ul>
+          </article>
+          <article class="info-card contact-card">
+            <p class="eyebrow">Need help?</p>
+            <h2>Emergency contacts</h2>
+            <p id="event-emergency">Event-day emergency contacts will be published here when event content is available.</p>
+            <p class="fine-print">Confirm event details and official safety protocols with the event organizers before the event.</p>
+          </article>
+        </div>
+        <button class="button button-primary back-to-register" type="button" data-view="register-view">Register for the event <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section id="admin-view" class="view" hidden>
+        <div class="page-hero admin-hero">
+          <p class="eyebrow">Event team</p>
+          <h1>Registration admin</h1>
+          <p>Manage attendee eligibility and event-day check-in.</p>
+        </div>
+
+        <section id="admin-login-panel" class="login-card" aria-labelledby="admin-login-title">
+          <div>
+            <p class="eyebrow">Restricted access</p>
+            <h2 id="admin-login-title">Administrator sign-in</h2>
+            <p>Sign in with the password configured by the event administrator.</p>
+          </div>
+          <form id="admin-login-form" class="login-form">
+            <label class="field">
+              <span>Administrator password</span>
+              <input name="password" type="password" autocomplete="current-password" required>
+            </label>
+            <p id="admin-login-error" class="form-error" role="alert" hidden></p>
+            <button class="button button-primary" type="submit">Sign in <span aria-hidden="true">→</span></button>
+          </form>
+        </section>
+
+        <div id="admin-dashboard" hidden>
+          <div class="dashboard-topline">
+            <div>
+              <p class="eyebrow">Live overview</p>
+              <h2>Event dashboard</h2>
+            </div>
+            <button id="admin-logout" class="button button-outline" type="button">Sign out</button>
+          </div>
+
+          <div class="stats-grid" aria-live="polite">
+            <article class="stat-card"><span>Registered</span><strong id="stat-registered">0</strong><small>confirmed attendees</small></article>
+            <article class="stat-card"><span>Checked in</span><strong id="stat-checked-in">0</strong><small>attendance recorded</small></article>
+            <article class="stat-card"><span>Awaiting entry</span><strong id="stat-awaiting">0</strong><small>not yet checked in</small></article>
+          </div>
+
+          <div class="admin-columns">
+            <section class="admin-card checkin-card" aria-labelledby="checkin-title">
+              <p class="eyebrow">Event entrance</p>
+              <h2 id="checkin-title">Verify &amp; check in</h2>
+              <form id="code-checkin-form" class="checkin-form">
+                <label class="field">
+                  <span>Registration entry code</span>
+                  <input name="credential" autocomplete="off" placeholder="e.g. KY-ABC123" required>
+                </label>
+                <button class="button button-primary" type="submit">Verify code</button>
+              </form>
+              <div class="fallback-box">
+                <h3>Code unavailable?</h3>
+                <p>Use both the attendee’s registered name and official Kyndryl email to verify eligibility.</p>
+                <form id="manual-checkin-form" class="manual-form">
+                  <label class="field"><span>Registered full name</span><input name="fullName" autocomplete="off" required></label>
+                  <label class="field"><span>Official Kyndryl email</span><input name="officialEmail" type="email" autocomplete="off" required></label>
+                  <button class="button button-secondary" type="submit">Verify &amp; check in</button>
+                </form>
+              </div>
+              <p id="checkin-result" class="checkin-result" role="status" aria-live="polite" hidden></p>
+            </section>
+
+            <section class="admin-card registrations-card" aria-labelledby="registrations-title">
+              <div class="table-heading">
+                <div><p class="eyebrow">Attendee list</p><h2 id="registrations-title">Registrations</h2></div>
+                <a class="button button-outline export-button" href="/api/admin/export.csv">Export CSV <span aria-hidden="true">↓</span></a>
+              </div>
+              <form id="filter-form" class="filters">
+                <label class="field filter-search"><span>Search name or email</span><input name="search" type="search" placeholder="Search attendees"></label>
+                <label class="field"><span>Dietary</span>
+                  <select name="diet"><option value="">All preferences</option><option>No preference</option><option>Vegetarian</option><option>Vegan</option><option>Jain</option><option>Halal</option><option>Kosher</option><option>Other</option></select>
+                </label>
+                <label class="field"><span>Alcohol</span>
+                  <select name="alcohol"><option value="">All</option><option value="yes">Yes</option><option value="no">No</option></select>
+                </label>
+                <label class="field"><span>Attendance</span>
+                  <select name="attendance"><option value="">All statuses</option><option value="pending">Awaiting entry</option><option value="checked-in">Checked in</option></select>
+                </label>
+                <button class="button button-secondary filter-button" type="submit">Apply filters</button>
+              </form>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Employee</th><th>Contact</th><th>Preferences</th><th>Attendance</th><th>Entry code</th></tr></thead>
+                  <tbody id="registrations-body"></tbody>
+                </table>
+                <p id="empty-registrations" class="empty-state" hidden>No registrations match these filters.</p>
+              </div>
+              <p class="table-footnote">Emergency contact details are available to event administrators in the registration data.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Kyndryl Year End Celebrations 2026</span>
+      <span>Celebrate responsibly. Look out for one another.</span>
+    </footer>
+  </body>
+</html>

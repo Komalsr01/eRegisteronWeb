@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.env
+registrations.sqlite3
+registrations.sqlite3-shm
+registrations.sqlite3-wal
